@@ -35,6 +35,7 @@ function remove(id) {
   return db('schemes')
     .del()
     .where("id", id)
+
 }
 
 module.exports = {
