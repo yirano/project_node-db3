@@ -27,11 +27,20 @@ ORDER BY p."ProductName"
 
 -- Display the OrderID, Customer's Company Name and the employee's LastName for every order. All columns should be labeled clearly. Displays 16,789 records.
 
-SELECT "Order"."Id" as "Order ID", 
-"Customer"."CompanyName" as "Customer's Company",
-"Employee"."LastName" as "Employee's Lastname"
-FROM "Order"
-JOIN "Customer", "Employee"
-WHERE "Customer"."Id" = "Order"."CustomerId"
-AND "Order"."EmployeeId" = "Employee"."Id"
+-- SELECT "Order"."Id" as "Order ID", 
+-- "Customer"."CompanyName" as "Customer's Company",
+-- "Employee"."LastName" as "Employee's Lastname"
+-- FROM "Order"
+-- JOIN "Customer", "Employee"
+-- WHERE "Customer"."Id" = "Order"."CustomerId"
+-- AND "Order"."EmployeeId" = "Employee"."Id"
+-- ;
+
+SELECT o."Id" AS "Order ID",
+c."CompanyName" AS "Customer's Company",
+e."LastName" AS "Employee's Lastname",
+FROM "Order" AS o
+JOIN "Customer" AS c, "Employee" as e
+WHERE c."Id" = o."CustomerId"
+AND o."EmployeeId" = e."Id"
 ;
